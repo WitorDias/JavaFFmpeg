@@ -5,15 +5,15 @@ import java.util.List;
 public class OperacoesFFmpeg {
     public void converterImagemJpgParaPng() {
 
-        String caminhoEntrada = System.getenv("caminhoEntrada");
-        String caminhoSaida = System.getenv("caminhoSaida");
+        String caminhoAbsolutoEntrada = System.getenv("caminhoEntrada");
+        String caminhoAbsolutoSaida = System.getenv("caminhoSaida");
 
-        FfmpegUtils.criaDiretorioSaidaSeNaoExistir(caminhoSaida);
+        FfmpegUtils.criaDiretorioSaidaSeNaoExistir(caminhoAbsolutoSaida);
 
-        List<File> arquivosJpg = FfmpegUtils.listarArquivosComExtensao(caminhoEntrada, ".jpg");
+        List<File> arquivosJpg = FfmpegUtils.listarArquivosComExtensao(caminhoAbsolutoEntrada, ".jpg");
 
         for (File file : arquivosJpg) {
-            String arquivoSaida = FfmpegUtils.montarCaminhoSaida(caminhoSaida, file, ".png");
+            String arquivoSaida = FfmpegUtils.montarCaminhoAbsolutoSaida(caminhoAbsolutoSaida, file, ".png");
             File arquivoSaidaConcreto = new File(arquivoSaida);
 
             if (!arquivoSaidaConcreto.exists()) {
@@ -27,15 +27,15 @@ public class OperacoesFFmpeg {
 
     public void converterVideoMp4EmAudioMp3() {
 
-        String caminhoEntrada = System.getenv("caminhoEntradaDeVideo");
-        String caminhoSaida = System.getenv("caminhoSaidaDeVideo");
+        String caminhoAbsolutoEntrada = System.getenv("caminhoEntradaDeVideo");
+        String caminhoAbsolutoSaida = System.getenv("caminhoSaidaDeVideo");
 
-        FfmpegUtils.criaDiretorioSaidaSeNaoExistir(caminhoSaida);
+        FfmpegUtils.criaDiretorioSaidaSeNaoExistir(caminhoAbsolutoSaida);
 
-        List<File> arquivosJpg = FfmpegUtils.listarArquivosComExtensao(caminhoEntrada, ".mp4");
+        List<File> arquivosJpg = FfmpegUtils.listarArquivosComExtensao(caminhoAbsolutoEntrada, ".mp4");
 
         for (File file : arquivosJpg) {
-            String arquivoSaida = FfmpegUtils.montarCaminhoSaida(caminhoSaida, file, ".mp3");
+            String arquivoSaida = FfmpegUtils.montarCaminhoAbsolutoSaida(caminhoAbsolutoSaida, file, ".mp3");
             File arquivoSaidaConcreto = new File(arquivoSaida);
 
             if (!arquivoSaidaConcreto.exists()) {

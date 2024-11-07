@@ -35,7 +35,7 @@ public class FfmpegUtils {
         return arquivosFiltrados;
     }
 
-    public static String montarCaminhoSaida(String caminhoSaida, File arquivoEntrada, String novaExtensao) {
+    public static String montarCaminhoAbsolutoSaida(String caminhoSaida, File arquivoEntrada, String novaExtensao) {
         return caminhoSaida + "\\" + arquivoEntrada.getName().replaceFirst("\\.[^.]+$", novaExtensao);
     }
 }
